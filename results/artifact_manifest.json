@@ -1,0 +1,47 @@
+{
+  "artifacts": [
+    {
+      "path": "reference/submission_notebooks/kaggle_submission_v11.md",
+      "archived_sha256": "52a0a0164af319217ef7c2482057689007835407ff146dec76c58c4606e8858f",
+      "published_sha256": "52a0a0164af319217ef7c2482057689007835407ff146dec76c58c4606e8858f",
+      "publication_change": "none"
+    },
+    {
+      "path": "reference/submission_notebooks/kaggle_submission_v18.md",
+      "archived_sha256": "5bfd7d906a2d7d19566f962df5baf6d8e881ac16b9e6c502433ae889fba277ba",
+      "published_sha256": "5bfd7d906a2d7d19566f962df5baf6d8e881ac16b9e6c502433ae889fba277ba",
+      "publication_change": "none"
+    },
+    {
+      "path": "reference/submission_notebooks/kaggle_submission_v27.md",
+      "archived_sha256": "1c7ebbfa47acfe2f96a8d4b4a7adb361ae0b2b7f8e90d7a921d4bab12cf7ac96",
+      "published_sha256": "1c7ebbfa47acfe2f96a8d4b4a7adb361ae0b2b7f8e90d7a921d4bab12cf7ac96",
+      "publication_change": "none"
+    },
+    {
+      "path": "src/attacks/method21_family_race.py",
+      "archived_sha256": "bfa5cdefa024d6d01703613da4c7c87f524e2e7d0160c7c57791ddf0351a73e8",
+      "published_sha256": "bfa5cdefa024d6d01703613da4c7c87f524e2e7d0160c7c57791ddf0351a73e8",
+      "publication_change": "none"
+    },
+    {
+      "path": "src/attacks/method39_broad_permodel_race.py",
+      "archived_sha256": "b3ffc534dfb596420dc75f23c4b32f9a0750b9318a598913ea5aecf281f1e43b",
+      "published_sha256": "b3ffc534dfb596420dc75f23c4b32f9a0750b9318a598913ea5aecf281f1e43b",
+      "publication_change": "none"
+    },
+    {
+      "path": "src/attacks/method44_static_list_continue_k4.py",
+      "archived_sha256": "1ca009351a10ca8cb6b021227a978ba4467540d25f18f580aa58ab725aa56212",
+      "published_sha256": "1ca009351a10ca8cb6b021227a978ba4467540d25f18f580aa58ab725aa56212",
+      "publication_change": "none"
+    },
+    {
+      "path": "src/attacks/v3_livefill.py",
+      "archived_sha256": "02c12cf23f48bb1868ac263dc815f8291f6c37404f3d45cf719c6fb33fa398bb",
+      "published_sha256": "26c82701fb38a4f5b903efd13e3abd0980856e470432a16dfd5d3902e6be5a73",
+      "publication_change": "attribution header only"
+    }
+  ],
+  "note": "Hashes identify archived files, not a proof of exact uploaded Kaggle submission identity."
+}

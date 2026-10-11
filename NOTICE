@@ -1,0 +1,64 @@
+NOTICE — sources and attribution
+================================
+
+Team Sian's original contributions are offered under the root MIT LICENSE.
+This does not replace the licenses or authorship of adapted third-party material.
+Public visibility alone is not a license; notebook licensing is attributed below
+only where it was identified on the specific source page.
+
+1. Live validation-fill / replay-safe budget adaptation
+
+   Source: Xander (Kaggle account canqiang), AIAgSec Ea B 0721, version 1.
+   https://www.kaggle.com/code/canqiang/aiagsec-ea-b-0721
+   The notebook page identifies Apache 2.0 licensing (checked 2026-10-11).
+   A copy is included at third_party/Apache-2.0.txt.
+
+   src/attacks/v3_livefill.py is Team Sian's modified adaptation: a simplified
+   validation-fill loop and budget handling, not an independently invented method.
+   Later source files and the historical plans build on the project's accumulated
+   adaptations and public prompt-format ideas. No claim is made that every line
+   in those later artifacts originated with Team Sian.
+
+   The upstream notebook itself credits YUSUKE / yusuketogashi's live-fill work:
+   https://www.kaggle.com/code/yusuketogashi/lb60-120-july-safe-edge-prune
+   That page identifies Apache 2.0 and credits Pilkwang Kim as its parent.
+   These are credited as upstream ancestry, not as a claim of a direct copy
+   from either notebook in this repository. Team Sian's changes do not establish causal
+   attribution of hosted score changes to individual edits.
+
+2. Local runtime and diagnostic workflow
+
+   Source: cm391 (Kaggle account mccocoful), local cpu + submission for hengck23.
+   https://www.kaggle.com/code/mccocoful/local-cpu-submission-for-hengck23
+   The notebook page identifies Apache 2.0 licensing (checked 2026-10-11).
+   The local-gateway approach in probes/local_gateway_probe.py was informed by
+   this source. Team Sian added its own diagnostic candidate construction and
+   explanatory measurements. The notebook's full source is not redistributed.
+
+   The historical project also used Kh0a's AAS | Local validation setup:
+   https://www.kaggle.com/code/llkh0a/aas-local-validation
+   It is credited as a setup reference; the complete setup is not bundled here.
+
+3. Competition SDK-derived excerpts
+
+   The full aicomp_sdk package and competition fixtures are not included.
+   docs/experiment_log_ko.md contains abbreviated source-derived explanations
+   and snippets, including public guardrail logic. These are not Team Sian's
+   independent inventions. The retained SDK 3.1.2 distribution's notice is:
+   Copyright (c) 2026 Competition Organizers; MIT License.
+   Its full text is included at third_party/MIT-SDK.txt.
+   Source access: https://www.kaggle.com/competitions/ai-agent-security-multi-step-tool-attacks/data
+
+4. Discussion influences
+
+   The historical log attributes the front-scoring/timing observation to hengck23
+   and gateway/timing advice to cm391. These are hypotheses or community reports,
+   not verified hosted replay rules. A useful related source is Pilkwang Kim's
+   public throughput discussion, which also credits YUSUKE:
+   https://www.kaggle.com/competitions/ai-agent-security-multi-step-tool-attacks/discussion/723698
+
+   The archive is a selected record, not a complete line-by-line genealogy of all
+   public materials consulted. Existing notices in historical files are retained.
+
+Original integration, experiments, and this retrospective: Team Sian (arki13).
+No affiliation with or endorsement by the organizers or source authors is implied.

@@ -1,0 +1,2 @@
+# Figure regeneration only; competition scripts require the separate Kaggle SDK.
+matplotlib>=3.6,<4

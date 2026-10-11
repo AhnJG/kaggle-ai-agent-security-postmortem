@@ -1,0 +1,3 @@
+date,code,score,sha256,sha256_12,status,path
+2026-08-29,method39_broad_permodel_race,93.835,b3ffc534dfb596420dc75f23c4b32f9a0750b9318a598913ea5aecf281f1e43b,b3ffc534dfb5,scored,src/attacks/method39_broad_permodel_race.py
+2026-08-30,method44_static_list_continue_k4,73.245,1ca009351a10ca8cb6b021227a978ba4467540d25f18f580aa58ab725aa56212,1ca009351a10,scored,src/attacks/method44_static_list_continue_k4.py
