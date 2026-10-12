@@ -24,7 +24,7 @@
 - 공식 Kaggle 리더보드의 Public·Private 탭에서 Team Sian / arki13을 확인했다:
   Public 223위·93.83500, Private 3,231위·0.00000. 표시된 Entries는 120으로,
   수기 CSV의 179개 행과 동일한 개념이라고 가정하지 않는다.
-- 사용자는 개별 Private 점수를 직접 입력했다고 확인했다. CSV 원본 바이트는 보존했다.
+- 소유자는 개별 Private 점수를 직접 입력했다고 확인했다. CSV 원본 바이트는 보존했다.
   179개 행 중 성공 158, 마감 후 성공 2, Format Error 18, Kaggle Error 1이며,
   숫자 쌍 160개가 그래프 입력이다. 정확한 제출 ID별 독립 대조는 하지 않았다.
 - method39와 method44는 개발 프로젝트의 retained scored registry 해시와 일치한다.
@@ -67,7 +67,7 @@
 
 ## 후속 — Private 저장소 연결을 위한 구조 정리
 
-사용자가 생성한 `AhnJG/kaggle-ai-agent-security-postmortem`은 인증된 GitHub 조회에서
+소유자가 생성한 `AhnJG/kaggle-ai-agent-security-postmortem`은 인증된 GitHub 조회에서
 비어 있는 Private 저장소임을 확인했다. 구조 참고 자료와 적용 이유는
 [repository_structure.md](repository_structure.md)에 남겼다.
 
@@ -78,3 +78,14 @@
   로컬 링크 52개와 manifest 해시 7개를 확인했고 CSV 2개와 계획 3개의 원본 바이트가 유지됨을 확인했다.
 - scored registry의 method39 조회가 기존 해시를 탐지함을 확인했다.
   코드나 모델 동작을 바꾸거나 새 실험·Kaggle 제출을 실행하지 않았다.
+
+## 후속 — 공개 직전 2차 검토 (2026-10-12)
+
+- Git 이력은 단일 커밋이고 작성자 이메일은 GitHub noreply다. 이력에서 비밀값이나 개인 경로는 검출되지 않았다.
+- PNG 2개의 메타데이터는 `Software`와 `dpi` 항목뿐이다.
+- 실험 원장의 기록과 판단은 보존하고, 공개 가독성 문제만 손봤다.
+  - 표현: 로컬 다운로드 경로를 파일명으로 바꾸고, "사용자"를 "소유자"로 바꿨다.
+  - 구조: 깨진 제목을 복구하고, 날짜가 어긋난 중복 섹션(method82)을 제거했다.
+  - 내용: 요약표의 오래된 상태 3행을 정정했다. 사후 주석과 최종 결과 에필로그도 추가했다.
+- 원장 머리말에는 미포함 파일, 작성 당시 기준인 상태 표시, placeholder 도메인, 1인과 AI 에이전트 협업에 관한 안내를 추가했다.
+- 소스·계획 파일과 CSV는 변경하지 않았으므로 artifact_manifest.json의 해시는 그대로 유효하다.

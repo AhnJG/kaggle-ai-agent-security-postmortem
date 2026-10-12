@@ -1,6 +1,6 @@
 # 93.835 on Public, 0 on Private — A Kaggle Selection Post-mortem
 
-A retrospective of Team Sian's entry in
+A retrospective of Team Sian's entry (a one-person team, Kaggle: arki13) in
 **[AI Agent Security – Multi-Step Tool Attacks](https://www.kaggle.com/competitions/ai-agent-security-multi-step-tool-attacks)**,
 an offline red-teaming competition hosted by OpenAI, Google, and IEEE.
 
