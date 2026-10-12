@@ -271,20 +271,20 @@ L 324 401.76
     <text style="font-size: 14px; font-family: 'DejaVu Sans'; fill: #52616e" transform="translate(59.04 208.715156)">SDK behavior; attribution in NOTICE</text>
    </g>
    <g id="text_6">
-    <text style="font-weight: 700; font-size: 11px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #24618b" x="381.6" y="146.788828" transform="rotate(-0 381.6 146.788828)">OWNER'S WORK</text>
+    <text style="font-weight: 700; font-size: 11px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #24618b" x="381.6" y="145.766172" transform="rotate(-0 381.6 145.766172)">PROJECT OWNER</text>
    </g>
    <g id="text_7">
-    <text style="font-size: 14px; font-family: 'DejaVu Sans'; fill: #52616e" transform="translate(381.6 170.273125)">Adaptation and integration</text>
-    <text style="font-size: 14px; font-family: 'DejaVu Sans'; fill: #52616e" transform="translate(381.6 189.173125)">Budget / candidate-selection variants</text>
-    <text style="font-size: 14px; font-family: 'DejaVu Sans'; fill: #52616e" transform="translate(381.6 208.073125)">Experiments and evidence review</text>
+    <text style="font-size: 14px; font-family: 'DejaVu Sans'; fill: #52616e" transform="translate(381.6 170.273125)">Research direction and scope</text>
+    <text style="font-size: 14px; font-family: 'DejaVu Sans'; fill: #52616e" transform="translate(381.6 189.173125)">Experiment choices and result review</text>
+    <text style="font-size: 14px; font-family: 'DejaVu Sans'; fill: #52616e" transform="translate(381.6 209.429375)">Final submission decisions</text>
    </g>
    <g id="text_8">
-    <text style="font-weight: 700; font-size: 11px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #24618b" x="704.16" y="146.788828" transform="rotate(-0 704.16 146.788828)">CODING-AGENT SUPPORT</text>
+    <text style="font-weight: 700; font-size: 11px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #24618b" x="704.16" y="146.356562" transform="rotate(-0 704.16 146.356562)">AI ASSISTANCE: CLAUDE / CODEX</text>
    </g>
    <g id="text_9">
-    <text style="font-size: 14px; font-family: 'DejaVu Sans'; fill: #52616e" transform="translate(704.16 170.273125)">Implementation, planning, and review</text>
-    <text style="font-size: 14px; font-family: 'DejaVu Sans'; fill: #52616e" transform="translate(704.16 190.529375)">Owner directed the work and</text>
-    <text style="font-size: 14px; font-family: 'DejaVu Sans'; fill: #52616e" transform="translate(704.16 209.429375)">made final submission decisions</text>
+    <text style="font-size: 14px; font-family: 'DejaVu Sans'; fill: #52616e" transform="translate(704.16 170.273125)">Code adaptation and diagnostics</text>
+    <text style="font-size: 14px; font-family: 'DejaVu Sans'; fill: #52616e" transform="translate(704.16 189.173125)">Plans and public-material analysis</text>
+    <text style="font-size: 14px; font-family: 'DejaVu Sans'; fill: #52616e" transform="translate(704.16 208.715156)">Evidence review; roles in workflow doc</text>
    </g>
    <g id="text_10">
     <text style="font-weight: 700; font-size: 11.5px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #24618b" x="56.16" y="280.50832" transform="rotate(-0 56.16 280.50832)">01</text>

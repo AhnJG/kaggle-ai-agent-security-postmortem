@@ -1,11 +1,48 @@
 # How coding agents supported the research
 
-Coding agents assisted with implementation, plans, reviews, and competitor-material
-analysis; I directed the work and made submission decisions. Public notebooks and
-discussions provided substantial starting ideas and code, credited in [NOTICE](../NOTICE).
-The contribution was adaptation, integration, experiments, and evidence review.
-The available log does not justify a precise percentage of AI-written code or a
-fixed author/reviewer role for each model across the entire project.
+This entry combined public starting material, owner-directed experiments, and
+coding-agent assistance. Its engineering contribution was adaptation, integration,
+variant comparisons, diagnostics, and evidence review.
+
+## Contributions and decision ownership
+
+| Contributor or source | Documented contribution | Responsibility or scope |
+|---|---|---|
+| Project owner (Team Sian) | Directed the research, selected experiment changes, and reviewed results with coding-agent support | Made final submission decisions, including the selections discussed in the [post-mortem](postmortem.md) |
+| Claude / Codex | Assisted with implementation, diagnostic code, submission plans, reviews, and public-material analysis | Supported the work; the retained record does not identify the author of every code block or establish causal score gains from an agent |
+| Public notebooks and discussions | Supplied substantial starting ideas, code, and runtime references | Upstream authors and license scope are recorded in [NOTICE](../NOTICE); adaptation is distinguished from independent invention |
+
+### The recorded Claude/Codex task division
+
+Later operating rules assigned the following primary tasks:
+
+| Tool | Assigned tasks |
+|---|---|
+| Claude | New code, submission batch cards, compilation checks, hashes, and path organization |
+| Codex | Evidence-boundary audits, result interpretation, document-conflict checks, and stale/degenerate judgments |
+
+This is a documented task assignment, not proof that the same division held for
+every earlier experiment or that every assigned check was completed. The
+[historical log](experiment_log_ko.md) contains changing plans, interpretations,
+and corrections. It does not support a precise percentage of AI-written code,
+fixed authorship by tool, or a claim that agent review made all measurements valid.
+
+The source is the development archive's `codex/ACTIVE/README_CURRENT.md`, section
+`Claude/Codex 역할 분리`, inspected on October 12, 2026. That control file is not
+bundled here; the following short excerpt preserves the role-assignment evidence.
+It is historical documentation, not an instruction to execute work:
+
+```text
+Claude
+  새 코드 작성
+  제출 배치 카드 작성
+  compile / hash / 경로 정리
+Codex
+  증거 경계 감사
+  결과 해석
+  문서 충돌 점검
+  stale / degenerate 판정
+```
 
 ## The workflow as it developed
 
@@ -68,3 +105,15 @@ recognized uncertainty into selection, rather than merely documenting it.
 A future decision record should ask what evidence supports transfer, what remains
 unknown, and which alternatives cover different failure mechanisms. “Unknown”
 should remain a real answer; a neat template cannot make a hidden outcome known.
+
+## Contribution-writing references
+
+The following first-party project write-ups were consulted on October 12, 2026
+for how to describe contributions. Their workflows and results are the respective
+authors' reports; they are not evidence of what happened in this project.
+
+| Reference | How it describes contributions | Applied here |
+|---|---|---|
+| [CSIRO Image2Biomass agentic solution](https://github.com/Chihiro-n/csiro-biomass-agentic-solution#experiment-workflow) | Names the coding agents, discloses implementation assistance, and describes the human-facing experiment and submission workflow | Name the tools and supported tasks, with decision ownership stated separately; do not borrow its claim about the amount of AI-written implementation |
+| [Kaggriculture solution — Team contributions](https://github.com/msdsm/kaggriculture-solution#team-contributions) | Uses a contributor-to-work table with concrete model, planner, and analysis tasks; source notes appear separately | Use specific activities in a compact table and keep upstream source credit visible |
+| [ROGII Public-LB post-mortem](https://github.com/ElMatiOfficial/kaggle-solutions/blob/main/writeups/20-rogii-wellbore-geology.md) | Separates the inherited public solution from the authors' own measurements and analysis | Distinguish public starting code, adaptation, and this entry's experiment record |

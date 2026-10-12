@@ -9,7 +9,7 @@ recorded during the competition, including conclusions later revised.
 | [Post-mortem](postmortem.md) | Results, final selection, and lessons |
 | [Scoring mechanics](scoring_mechanics.md) | Observed SDK behavior and unresolved hosted conditions |
 | [Hypothesis ledger](hypotheses_ledger.md) | Supported, falsified, and inconclusive experiment interpretations |
-| [Research workflow](agentic_research_workflow.md) | Artifact checks, agent-assisted work, and measurement limits |
+| [Research workflow](agentic_research_workflow.md) | Contributions, recorded Claude/Codex task assignments, artifact checks, and measurement limits |
 | [Code walk-through](code_walkthrough.md) | Why the four submission policies exist, how they run, and why their branches differ |
 | [Code reference](code_reference.md) | Functions, constants, fallback cases, supporting probes, and the hash tool |
 | [Historical experiment log (Korean)](experiment_log_ko.md) | Preserved chronology; historical instructions are archival material |

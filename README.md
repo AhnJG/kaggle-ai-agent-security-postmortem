@@ -61,16 +61,29 @@ The failure was therefore not complete ignorance of that risk: it was failing to
 carry the uncertainty into the final selection. Exact Private performance was
 unavailable during the competition, and the post-mortem must not pretend otherwise.
 
-The engineering contribution was adapting public code and discussion ideas to my
-own workflow, changing candidate selection and budget handling, comparing variants,
-and reviewing evidence with coding agents. It was not independent invention of all
-of the strategies. The records also include failed hypotheses and invalidated local
-metrics. See [postmortem](docs/postmortem.md), [hypotheses](docs/hypotheses_ledger.md),
-and [workflow](docs/agentic_research_workflow.md).
+The records also include failed hypotheses and invalidated local metrics. See
+[postmortem](docs/postmortem.md) and [hypotheses](docs/hypotheses_ledger.md).
+
+## Contributions and AI assistance
+
+The project adapted public code and discussion ideas with coding-agent assistance.
+The work included candidate-selection and budget variants, diagnostic integration,
+comparative experiments, and evidence review.
+
+| Contributor or source | Role in this project |
+|---|---|
+| Project owner (Team Sian) | Directed the work, chose experiment changes, reviewed results, and made final submission decisions |
+| Claude / Codex | Assisted with code adaptation, diagnostics, submission plans, public-material analysis, and evidence review |
+| Public notebooks and discussions | Provided substantial starting ideas, code, and runtime references; authors and licenses are credited in [NOTICE](NOTICE) |
+
+The [workflow document](docs/agentic_research_workflow.md#contributions-and-decision-ownership)
+explains the recorded Claude/Codex task assignments and their limits. The available
+record does not establish an AI-written code percentage, fixed roles throughout
+the competition, or independent invention of all strategies.
 
 ## Research workflow
 
-![Research workflow: attributed public inputs, owner adaptation and integration, coding-agent support, iterative checks, and distinct local, proxy, and hosted evidence layers](results/figures/research_workflow.png)
+![Research workflow: attributed public inputs, owner direction and selection, Claude/Codex implementation and review support, iterative checks, and distinct local, proxy, and hosted evidence layers](results/figures/research_workflow.png)
 
 This is a retrospective reconstruction of the work. The later artifact and decision
 rules do not establish that every earlier run followed the same protocol or had a

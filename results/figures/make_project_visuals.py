@@ -178,8 +178,8 @@ def workflow():
            "A retrospective reconstruction of the work; it is not an identical protocol for every historical run.")
     lanes = [
         ("PUBLIC STARTING POINTS", "Live-fill and prompt-format ideas\nLocal-runtime setup references\nSDK behavior; attribution in NOTICE"),
-        ("OWNER'S WORK", "Adaptation and integration\nBudget / candidate-selection variants\nExperiments and evidence review"),
-        ("CODING-AGENT SUPPORT", "Implementation, planning, and review\nOwner directed the work and\nmade final submission decisions"),
+        ("PROJECT OWNER", "Research direction and scope\nExperiment choices and result review\nFinal submission decisions"),
+        ("AI ASSISTANCE: CLAUDE / CODEX", "Code adaptation and diagnostics\nPlans and public-material analysis\nEvidence review; roles in workflow doc"),
     ]
     for i, (label, body) in enumerate(lanes):
         x = 60 + 448 * i
