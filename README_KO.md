@@ -23,6 +23,7 @@ OpenAI, Google, IEEE가 주최한 이 대회는 오프라인 환경에서 AI 에
 | 점수 기록의 출처와 확인 가능한 범위 | [데이터 출처](results/README.md) |
 | 채점 방식, 실험 가설, 연구 흐름 | [문서 안내](docs/README.md) |
 | 주요 코드가 필요한 이유와 실제 동작 | [코드 해설](docs/code_walkthrough.md) |
+| AI 활용 중 오류·정정과 앞으로의 확인 사항 | [AI 활용 반성](docs/ai_assistance_reflection_ko.md) |
 | 당시 사용한 Python 코드 | [소스 코드 안내](src/attacks/README.md) |
 | 당시 작성한 제출 계획 | [제출 계획 안내](reference/submission_notebooks/README.md) |
 | 전체 개요, 상세 도표, SVG 파일 | [시각 자료 안내](results/figures/README.md) |
@@ -65,6 +66,11 @@ Public 점수가 더 낮았던 일부 대안은 점수를 유지했습니다.
 
 실패한 가설과 타당하지 않아 폐기한 로컬 지표도 기록에 포함되어 있습니다.
 [결과 회고](docs/postmortem.md)와 [가설 기록](docs/hypotheses_ledger.md)에서 확인할 수 있습니다.
+
+AI 활용 과정에서 방향·측정·구현·기록이 어긋난 사례는
+[AI 활용 반성문](docs/ai_assistance_reflection_ko.md)에 정리했습니다.
+38개 검토 항목을 원문·정정·재발 방지 기준과 연결하고, 직접적인 AI 출력 오류와
+원인이 불분명한 공동 작업의 실패를 구분합니다.
 
 ## 기여와 AI 활용
 

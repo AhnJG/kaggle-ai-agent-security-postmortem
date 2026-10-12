@@ -20,6 +20,7 @@ an offline red-teaming competition hosted by OpenAI, Google, and IEEE.
 | Score records and their evidence limits | [Data provenance](results/README.md) |
 | Scoring, hypotheses, and research workflow | [Documentation index](docs/README.md) |
 | Why the main code exists and how it behaves | [Code walk-through](docs/code_walkthrough.md) |
+| AI-assisted research mistakes, corrections, and lessons (Korean) | [AI-assistance reflection](docs/ai_assistance_reflection_ko.md) |
 | Historical Python artifacts | [Source index](src/attacks/README.md) |
 | Historical submission plans | [Plan index](reference/submission_notebooks/README.md) |
 | Visual overview, detailed diagrams, and SVG exports | [Figure index](results/figures/README.md) |
@@ -75,6 +76,10 @@ comparative experiments, and evidence review.
 | Project owner (Team Sian) | Directed the work, chose experiment changes, reviewed results, and made final submission decisions |
 | Claude / Codex | Assisted with code adaptation, diagnostics, submission plans, public-material analysis, and evidence review |
 | Public notebooks and discussions | Provided substantial starting ideas, code, and runtime references; authors and licenses are credited in [NOTICE](NOTICE) |
+
+The [AI-assistance reflection (Korean)](docs/ai_assistance_reflection_ko.md) connects
+38 review items to their source records, corrections, and future checks. It distinguishes
+explicit AI-output mistakes from shared-work errors and failures with uncertain causes.
 
 The [workflow document](docs/agentic_research_workflow.md#contributions-and-decision-ownership)
 explains the recorded Claude/Codex task assignments and their limits. The available

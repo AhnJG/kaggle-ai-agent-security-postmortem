@@ -44,6 +44,12 @@ Codex
   stale / degenerate 판정
 ```
 
+The [AI-assistance reflection (Korean)](ai_assistance_reflection_ko.md) documents
+38 review items spanning measurement, interpretation, delivery, and state management.
+Each item separates recorded outcomes from causal assumptions and distinguishes
+explicit AI-output mistakes from errors whose authorship or cause is uncertain.
+The owner retains responsibility for experiment and final-selection decisions.
+
 ## The workflow as it developed
 
 Later in the project, operating rules formalized candidate identity and decision

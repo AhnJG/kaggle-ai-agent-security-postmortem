@@ -9,6 +9,9 @@ recorded during the competition, including conclusions later revised.
 | [Post-mortem](postmortem.md) | Results, final selection, and lessons |
 | [Scoring mechanics](scoring_mechanics.md) | Observed SDK behavior and unresolved hosted conditions |
 | [Hypothesis ledger](hypotheses_ledger.md) | Supported, falsified, and inconclusive experiment interpretations |
+| [AI-assistance reflection (Korean)](ai_assistance_reflection_ko.md) | Lessons from planning, measurement, interpretation, delivery, and state-management mistakes |
+| [AI-assistance incident records (Korean)](ai_assistance_incidents_ko.md) | 38 review items, source-line links, corrections, uncertainty, and historical review excerpts |
+| [AI-assistance source inventory](ai_assistance_review_sources.csv) | Search scope, original-file hashes, and keyword-hit counts; not an error count |
 | [Research workflow](agentic_research_workflow.md) | Contributions, recorded Claude/Codex task assignments, artifact checks, and measurement limits |
 | [Code walk-through](code_walkthrough.md) | Why the four submission policies exist, how they run, and why their branches differ |
 | [Code reference](code_reference.md) | Functions, constants, fallback cases, supporting probes, and the hash tool |
