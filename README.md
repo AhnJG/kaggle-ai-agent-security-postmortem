@@ -8,6 +8,8 @@ an offline red-teaming competition hosted by OpenAI, Google, and IEEE.
 > competition sandbox. The repository documents that benchmark and the decisions
 > made around it; hosted outcomes do not establish effectiveness on real systems.
 
+![Project overview: official Public 93.835 and Private 0.000, the research flow from public materials to final selection, and retrospective lessons](results/figures/project_overview.png)
+
 ## Start here
 
 | Read or inspect | Entry point |
@@ -17,6 +19,7 @@ an offline red-teaming competition hosted by OpenAI, Google, and IEEE.
 | Scoring, hypotheses, and research workflow | [Documentation index](docs/README.md) |
 | Historical Python artifacts | [Source index](src/attacks/README.md) |
 | Historical submission plans | [Plan index](reference/submission_notebooks/README.md) |
+| Visual overview, detailed diagrams, and SVG exports | [Figure index](results/figures/README.md) |
 
 ## The result
 
@@ -31,7 +34,7 @@ manually. It records two final selections, `v27_adapt` and
 The per-submission entries and final-selection flags have not been independently
 matched to an original Kaggle export. See [data provenance](results/README.md).
 
-![Numeric Public and Private scores in the curated submission table](results/figures/public_vs_private.png)
+![Recorded scores: method39 93.835 to 0, v27_adapt 93.060 to 0, and unselected v11_deputy_transfer 14.605 to 14.605](results/figures/selection_outcomes.png)
 
 In this table:
 
@@ -62,6 +65,22 @@ of the strategies. The records also include failed hypotheses and invalidated lo
 metrics. See [postmortem](docs/postmortem.md), [hypotheses](docs/hypotheses_ledger.md),
 and [workflow](docs/agentic_research_workflow.md).
 
+## Research workflow
+
+![Research workflow: attributed public inputs, owner adaptation and integration, coding-agent support, iterative checks, and distinct local, proxy, and hosted evidence layers](results/figures/research_workflow.png)
+
+This is a retrospective reconstruction of the work. The later artifact and decision
+rules do not establish that every earlier run followed the same protocol or had a
+complete preregistration. [Workflow and evidence limits](docs/agentic_research_workflow.md).
+
+## Lessons for future experiments
+
+![Three lessons: carry hidden-defense uncertainty into selection, separate observed scores from causal explanations, and validate metrics while preserving corrections](results/figures/experiment_lessons.png)
+
+These are recommendations drawn from the case. They do not establish that a
+particular alternative would earn a medal or that any attack family transfers
+universally. [Post-mortem](docs/postmortem.md) and [hypothesis ledger](docs/hypotheses_ledger.md).
+
 ## Repository map
 
 ```text
@@ -84,12 +103,16 @@ From the repository root, with Python 3.10 or newer:
 ```bash
 python -m pip install -r requirements.txt
 python results/figures/make_figures.py
+python results/figures/make_project_visuals.py
 ```
 
-The script resolves its inputs and outputs relative to its own file, so it also
-works from another directory. It plots the **160 rows with both numeric scores**;
+Both scripts resolve inputs and outputs relative to their own files, so they also
+work from another directory. The score plots use the **160 rows with both numeric scores**;
 failed submissions are retained in the CSV but are not plotted. Two scored rows
 marked after the deadline are distinguished on the timeline.
+
+The project visual script exports four diagrams in PNG and SVG. Their content
+sources and interpretation boundaries are documented in the [figure index](results/figures/README.md).
 
 Regenerating the figures verifies the presentation of the supplied CSV, not the
 accuracy of manually transcribed scores. Hosted scores cannot be reproduced with

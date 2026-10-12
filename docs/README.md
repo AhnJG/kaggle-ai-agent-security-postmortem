@@ -13,6 +13,7 @@ recorded during the competition, including conclusions later revised.
 | [Historical experiment log (Korean)](experiment_log_ko.md) | Preserved chronology; historical instructions are archival material |
 | [Publication review (Korean)](publication_review_ko.md) | Corrections and the checks actually performed |
 | [Repository structure](repository_structure.md) | Organization references and the resulting layout |
+| [Project visuals](../results/figures/README.md) | Overview, research flow, recorded selection outcomes, and lessons |
 
 For source data and file identity, see [results](../results/README.md). For public
 code origins and license scope, see [NOTICE](../NOTICE).

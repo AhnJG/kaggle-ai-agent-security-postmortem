@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" width="1036.8pt" height="712.8pt" viewBox="0 0 1036.8 712.8" xmlns="http://www.w3.org/2000/svg" version="1.1">
+ <title>Lessons for future experiment decisions</title>
+ <metadata>
+  <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+   <cc:Work>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+    <dc:title>Lessons for future experiment decisions</dc:title>
+    <dc:description>Three observed issues connected to future selection, comparison, and measurement decisions, with explicit evidence boundaries.</dc:description>
+    <dc:format>image/svg+xml</dc:format>
+    <dc:creator>
+     <cc:Agent>
+      <dc:title>Team Sian / project visual generator</dc:title>
+     </cc:Agent>
+    </dc:creator>
+   </cc:Work>
+  </rdf:RDF>
+ </metadata>
+ <defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="figure_1">
+  <g id="patch_1">
+   <path d="M 0 712.8 
+L 1036.8 712.8 
+L 1036.8 0 
+L 0 0 
+z
+" style="fill: #ffffff"/>
+  </g>
+  <g id="axes_1">
+   <g id="patch_2">
+    <path d="M 49.68 133.2 
+L 987.12 133.2 
+Q 993.6 133.2 993.6 139.68 
+L 993.6 272.88 
+Q 993.6 279.36 987.12 279.36 
+L 49.68 279.36 
+Q 43.2 279.36 43.2 272.88 
+L 43.2 139.68 
+Q 43.2 133.2 49.68 133.2 
+z
+" clip-path="url(#p5bcd7311a7)" style="fill: #f5f7f9; stroke: #dce3e8; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_3">
+    <path d="M 507.440391 228.24 
+Q 519.840771 228.24 530.899511 228.24 
+" clip-path="url(#p5bcd7311a7)" style="fill: none; stroke: #24618b; stroke-width: 1.2; stroke-linecap: round"/>
+    <path d="M 525.699511 225.64 
+L 530.899511 228.24 
+L 525.699511 230.84 
+z
+" clip-path="url(#p5bcd7311a7)" style="fill: #24618b; stroke: #24618b; stroke-width: 1.2; stroke-linecap: round"/>
+   </g>
+   <g id="patch_4">
+    <path d="M 49.68 298.08 
+L 987.12 298.08 
+Q 993.6 298.08 993.6 304.56 
+L 993.6 437.76 
+Q 993.6 444.24 987.12 444.24 
+L 49.68 444.24 
+Q 43.2 444.24 43.2 437.76 
+L 43.2 304.56 
+Q 43.2 298.08 49.68 298.08 
+z
+" clip-path="url(#p5bcd7311a7)" style="fill: #f5f7f9; stroke: #dce3e8; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_5">
+    <path d="M 507.440391 393.12 
+Q 519.840771 393.12 530.899511 393.12 
+" clip-path="url(#p5bcd7311a7)" style="fill: none; stroke: #24618b; stroke-width: 1.2; stroke-linecap: round"/>
+    <path d="M 525.699511 390.52 
+L 530.899511 393.12 
+L 525.699511 395.72 
+z
+" clip-path="url(#p5bcd7311a7)" style="fill: #24618b; stroke: #24618b; stroke-width: 1.2; stroke-linecap: round"/>
+   </g>
+   <g id="patch_6">
+    <path d="M 49.68 462.96 
+L 987.12 462.96 
+Q 993.6 462.96 993.6 469.44 
+L 993.6 602.64 
+Q 993.6 609.12 987.12 609.12 
+L 49.68 609.12 
+Q 43.2 609.12 43.2 602.64 
+L 43.2 469.44 
+Q 43.2 462.96 49.68 462.96 
+z
+" clip-path="url(#p5bcd7311a7)" style="fill: #f5f7f9; stroke: #dce3e8; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_7">
+    <path d="M 507.440391 558 
+Q 519.840771 558 530.899511 558 
+" clip-path="url(#p5bcd7311a7)" style="fill: none; stroke: #24618b; stroke-width: 1.2; stroke-linecap: round"/>
+    <path d="M 525.699511 555.4 
+L 530.899511 558 
+L 525.699511 560.6 
+z
+" clip-path="url(#p5bcd7311a7)" style="fill: #24618b; stroke: #24618b; stroke-width: 1.2; stroke-linecap: round"/>
+   </g>
+   <g id="text_1">
+    <text style="font-weight: 700; font-size: 11.5px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #24618b" x="43.2" y="37.416406" transform="rotate(-0 43.2 37.416406)">03  /  RETROSPECTIVE LESSONS</text>
+   </g>
+   <g id="text_2">
+    <text style="font-weight: 700; font-size: 27px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #182632" x="43.2" y="73.195312" transform="rotate(-0 43.2 73.195312)">Lessons for the next experiment</text>
+   </g>
+   <g id="text_3">
+    <text style="font-size: 14px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #52616e" x="43.2" y="98.993125" transform="rotate(-0 43.2 98.993125)">Recommendations drawn from this case; they are not claims of a universally effective strategy.</text>
+   </g>
+   <g id="text_4">
+    <text style="font-weight: 700; font-size: 18px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #24618b" x="59.76" y="166.301719" transform="rotate(-0 59.76 166.301719)">01</text>
+   </g>
+   <g id="text_5">
+    <text style="font-weight: 700; font-size: 20px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #182632" x="98.64" y="166.540625" transform="rotate(-0 98.64 166.540625)">Carry uncertainty into selection</text>
+   </g>
+   <g id="text_6">
+    <text style="font-weight: 700; font-size: 10.5px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #52616e" x="98.64" y="194.509336" transform="rotate(-0 98.64 194.509336)">OBSERVATION</text>
+   </g>
+   <g id="text_7">
+    <text style="font-size: 13.5px; font-family: 'DejaVu Sans'; fill: #52616e" transform="translate(98.64 217.185469)">Hidden-defense risk was discussed.</text>
+    <text style="font-size: 13.5px; font-family: 'DejaVu Sans'; fill: #52616e" transform="translate(98.64 235.410469)">The recorded finalists still concentrated</text>
+    <text style="font-size: 13.5px; font-family: 'DejaVu Sans'; fill: #52616e" transform="translate(98.64 253.635469)">in EXFILTRATION and both had Private 0.</text>
+   </g>
+   <g id="text_8">
+    <text style="font-weight: 700; font-size: 10.5px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #24618b" x="552.24" y="194.509336" transform="rotate(-0 552.24 194.509336)">NEXT DECISION</text>
+   </g>
+   <g id="text_9">
+    <text style="font-size: 13.5px; font-family: 'DejaVu Sans'; fill: #182632" transform="translate(552.24 215.877656)">Compare failure mechanisms before selection.</text>
+    <text style="font-size: 13.5px; font-family: 'DejaVu Sans'; fill: #182632" transform="translate(552.24 234.102656)">Record what supports transfer and what</text>
+    <text style="font-size: 13.5px; font-family: 'DejaVu Sans'; fill: #182632" transform="translate(552.24 252.327656)">remains unknown; diversification is not a guarantee.</text>
+   </g>
+   <g id="text_10">
+    <text style="font-weight: 700; font-size: 18px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #24618b" x="59.76" y="331.181719" transform="rotate(-0 59.76 331.181719)">02</text>
+   </g>
+   <g id="text_11">
+    <text style="font-weight: 700; font-size: 20px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #182632" x="98.64" y="331.49875" transform="rotate(-0 98.64 331.49875)">Separate an observed score from its cause</text>
+   </g>
+   <g id="text_12">
+    <text style="font-weight: 700; font-size: 10.5px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #52616e" x="98.64" y="359.389336" transform="rotate(-0 98.64 359.389336)">OBSERVATION</text>
+   </g>
+   <g id="text_13">
+    <text style="font-size: 13.5px; font-family: 'DejaVu Sans'; fill: #52616e" transform="translate(98.64 380.757656)">method39 had the highest recorded Public score.</text>
+    <text style="font-size: 13.5px; font-family: 'DejaVu Sans'; fill: #52616e" transform="translate(98.64 400.290469)">Unmatched historical variants do not isolate</text>
+    <text style="font-size: 13.5px; font-family: 'DejaVu Sans'; fill: #52616e" transform="translate(98.64 417.207656)">the effect of routing, speed, or individual edits.</text>
+   </g>
+   <g id="text_14">
+    <text style="font-weight: 700; font-size: 10.5px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #24618b" x="552.24" y="359.389336" transform="rotate(-0 552.24 359.389336)">NEXT DECISION</text>
+   </g>
+   <g id="text_15">
+    <text style="font-size: 13.5px; font-family: 'DejaVu Sans'; fill: #182632" transform="translate(552.24 380.757656)">Set the comparison and decision rule before a run.</text>
+    <text style="font-size: 13.5px; font-family: 'DejaVu Sans'; fill: #182632" transform="translate(552.24 398.982656)">Use matched comparisons when feasible;</text>
+    <text style="font-size: 13.5px; font-family: 'DejaVu Sans'; fill: #182632" transform="translate(552.24 417.207656)">keep Public feedback as secondary evidence.</text>
+   </g>
+   <g id="text_16">
+    <text style="font-weight: 700; font-size: 18px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #24618b" x="59.76" y="496.061719" transform="rotate(-0 59.76 496.061719)">03</text>
+   </g>
+   <g id="text_17">
+    <text style="font-weight: 700; font-size: 20px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #182632" x="98.64" y="496.37875" transform="rotate(-0 98.64 496.37875)">Validate metrics and keep their corrections</text>
+   </g>
+   <g id="text_18">
+    <text style="font-weight: 700; font-size: 10.5px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #52616e" x="98.64" y="524.269336" transform="rotate(-0 98.64 524.269336)">OBSERVATION</text>
+   </g>
+   <g id="text_19">
+    <text style="font-size: 13.5px; font-family: 'DejaVu Sans'; fill: #52616e" transform="translate(98.64 545.637656)">The September 2 correction withdrew</text>
+    <text style="font-size: 13.5px; font-family: 'DejaVu Sans'; fill: #52616e" transform="translate(98.64 563.674922)">invalid timeout_free_n and unique_cells</text>
+    <text style="font-size: 13.5px; font-family: 'DejaVu Sans'; fill: #52616e" transform="translate(98.64 582.087656)">interpretations from a local probe.</text>
+   </g>
+   <g id="text_20">
+    <text style="font-weight: 700; font-size: 10.5px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #24618b" x="552.24" y="524.269336" transform="rotate(-0 552.24 524.269336)">NEXT DECISION</text>
+   </g>
+   <g id="text_21">
+    <text style="font-size: 13.5px; font-family: 'DejaVu Sans'; fill: #182632" transform="translate(552.24 545.637656)">Define metrics against the actual measurement.</text>
+    <text style="font-size: 13.5px; font-family: 'DejaVu Sans'; fill: #182632" transform="translate(552.24 563.862656)">Preserve invalid runs and corrected interpretations.</text>
+    <text style="font-size: 13.5px; font-family: 'DejaVu Sans'; fill: #182632" transform="translate(552.24 582.087656)">Separate code failure, proxy mismatch, and strategy.</text>
+   </g>
+   <g id="text_22">
+    <text style="font-size: 10.5px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #52616e" x="43.2" y="670.078828" transform="rotate(-0 43.2 670.078828)">Read the current interpretation in docs/postmortem.md and docs/hypotheses_ledger.md; the Korean log preserves historical claims and corrections.</text>
+   </g>
+   <g id="text_23">
+    <text style="font-size: 11px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #52616e" x="43.2" y="691.580313" transform="rotate(-0 43.2 691.580313)">The archive provides selected artifacts, not complete hosted reproduction or proof of generalization beyond the competition sandbox.</text>
+   </g>
+  </g>
+ </g>
+ <defs>
+  <clipPath id="p5bcd7311a7">
+   <rect x="0" y="0" width="1036.8" height="712.8"/>
+  </clipPath>
+ </defs>
+</svg>
