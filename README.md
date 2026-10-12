@@ -17,6 +17,7 @@ an offline red-teaming competition hosted by OpenAI, Google, and IEEE.
 | Final outcome and selection decisions | [Post-mortem](docs/postmortem.md) |
 | Score records and their evidence limits | [Data provenance](results/README.md) |
 | Scoring, hypotheses, and research workflow | [Documentation index](docs/README.md) |
+| Why the main code exists and how it behaves | [Code walk-through](docs/code_walkthrough.md) |
 | Historical Python artifacts | [Source index](src/attacks/README.md) |
 | Historical submission plans | [Plan index](reference/submission_notebooks/README.md) |
 | Visual overview, detailed diagrams, and SVG exports | [Figure index](results/figures/README.md) |
@@ -72,6 +73,24 @@ and [workflow](docs/agentic_research_workflow.md).
 This is a retrospective reconstruction of the work. The later artifact and decision
 rules do not establish that every earlier run followed the same protocol or had a
 complete preregistration. [Workflow and evidence limits](docs/agentic_research_workflow.md).
+
+## Understand the representative code
+
+The implementations make different choices about how much to test before returning
+candidates. The [code walk-through](docs/code_walkthrough.md) explains their purposes,
+control flow, fallback branches, and connection to the recorded outcomes.
+
+| Policy | Construction-time behavior |
+|---|---|
+| `v3_livefill` | Try each message and keep positive trace checks within estimated time limits |
+| `method21` | Sample four families, then build a blind batch of one winner |
+| `method39` | Sample five format variants in the supplied environment, then build a blind batch |
+| `method44` | Build a fixed batch with four intended actions in each one-message candidate |
+
+Returning a candidate is separate from replaying and scoring it. A matching tool
+event is separate from a scored predicate and cell novelty. Function and constant
+details, including the supporting probes and hash tool, are in the
+[code reference](docs/code_reference.md).
 
 ## Lessons for future experiments
 

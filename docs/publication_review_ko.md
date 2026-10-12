@@ -91,3 +91,18 @@ Public 점수 차이의 인과관계를 주장하지 않는다.
 자동 확인하고 PNG 4개와 SVG 4개의 파일 구조를 검증했으며, 도표 4개를 시각 검토했다.
 로컬 문서 링크와 기존 manifest 해시 7개를 확인했다. CSV, 원본 코드·계획·진단 파일의 바이트는
 보존했다. 모델 실행이나 Kaggle 제출, 저장소 공개 전환은 수행하지 않았다.
+
+## 후속 — 대표 코드 설명 자료 추가 (2026-10-12)
+
+Python을 알지만 대회 SDK는 모르는 독자를 위해
+[code_walkthrough.md](code_walkthrough.md)와 [code_reference.md](code_reference.md)를 추가했다.
+v3_livefill·method21·method39·method44의 목적, 생성과 replay의 구분, 주요 함수·상수,
+예외 분기와 시간 측정 범위를 설명하고 진단·해시 도구를 보조 자료로 연결했다.
+작은 흐름도 3개와 합성 순위 계산 예제를 포함했다.
+
+대표 코드 4개의 실제 함수와 상수를 정적으로 읽어 설명과 대조했다.
+결과 표 4행은 CSV와 확인했으며, 합성 예제는 단순 산술로 확인했다.
+method39·method44의 파일 작성 wrapper는 실행하지 않았다.
+모든 Python 파일·결과 파일의 바이트와 기존 manifest 해시 7개를 유지했고,
+로컬 링크와 새 문서의 heading 연결·code fence를 확인했다.
+모델 실행, 새 probe, Kaggle 제출, 저장소 공개 전환은 수행하지 않았다.

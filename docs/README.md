@@ -10,6 +10,8 @@ recorded during the competition, including conclusions later revised.
 | [Scoring mechanics](scoring_mechanics.md) | Observed SDK behavior and unresolved hosted conditions |
 | [Hypothesis ledger](hypotheses_ledger.md) | Supported, falsified, and inconclusive experiment interpretations |
 | [Research workflow](agentic_research_workflow.md) | Artifact checks, agent-assisted work, and measurement limits |
+| [Code walk-through](code_walkthrough.md) | Why the four submission policies exist, how they run, and why their branches differ |
+| [Code reference](code_reference.md) | Functions, constants, fallback cases, supporting probes, and the hash tool |
 | [Historical experiment log (Korean)](experiment_log_ko.md) | Preserved chronology; historical instructions are archival material |
 | [Publication review (Korean)](publication_review_ko.md) | Corrections and the checks actually performed |
 | [Repository structure](repository_structure.md) | Organization references and the resulting layout |

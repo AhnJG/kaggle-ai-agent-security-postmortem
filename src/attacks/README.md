@@ -4,6 +4,10 @@ Four historical Python files are retained for inspection. These are not a
 standalone runnable package. They require the separate competition SDK, and some
 wrappers write `/kaggle/working/attack.py`. Inspect them before executing.
 
+For readers new to the competition, the [code walk-through](../../docs/code_walkthrough.md)
+explains the four policies and their design reasons. The
+[function reference](../../docs/code_reference.md) maps the explanation to the source.
+
 The method39 and method44 Python exports preserve their historical file bytes and
 scored registry hashes. v3_livefill carries a publication attribution header; its
 historical implementation is unchanged. Identity is recorded in

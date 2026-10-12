@@ -11,6 +11,10 @@ complete reproduction of their reported runs. Local `local_gguf` results establi
 behavior in that environment; a `cm391` board-like runtime is a proxy. Neither
 establishes a hosted score or the hidden guardrail's behavior.
 
+The [supporting-tool reference](../docs/code_reference.md#supporting-diagnostics-and-artifact-tools)
+explains what each script measures and why its field names and fitted coefficients
+must be distinguished from directly observed model-stage timings or hosted scores.
+
 `local_gateway_probe.py` uses the organizers' local gateway and a community runtime
 approach credited in [NOTICE](../NOTICE). It writes `/kaggle/working/attack.py` and
 may install `llama-cpp-python` if missing; inspect it in a dedicated Kaggle workspace
