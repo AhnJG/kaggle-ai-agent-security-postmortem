@@ -515,7 +515,7 @@
 ## 개발 검토 문서의 원문 발췌
 
 S01–S08은 원본 개발 폴더의 자체 검토 문서에서 발췌했다. 원본 전체는 이 저장소에 포함하지 않는다.
-원문 hash는 2026-10-12에 읽은 파일 전체의 SHA-256이다. 번호와 문구를 보존하되 사용자 로컬
+원문 hash는 2026-10-12에 읽은 파일 전체의 SHA-256이다. 번호와 문구를 보존하되 행 끝 공백을 제거하고, 사용자 로컬
 절대 경로는 `<development-archive>/` 또는 `<local-file>`로 치환했다. hash는 이 발췌문 자체의 hash가 아니다.
 아래의 제출 권고·명령·단정은 **당시 기록**이며, 현재 실행 지시나 이 회고의 확인된 결론이 아니다.
 특히 S02·S05의 집계 점수 역산·모델별 원인 단정과 S08의 주장은 사례 본문의 한계를 함께 읽어야 한다.
@@ -531,25 +531,25 @@ S01–S08은 원본 개발 폴더의 자체 검토 문서에서 발췌했다. �
 
 ```text
 17: ## 한 줄 verdict
-18: 
+18:
 19: 이전 추천은 **틀렸다.** 이유는 `P(92.385를 조금 넘길 확률)`을 최적화했지, 사용자가 원한 **`+10 / 100+` 구조 점프 확률**을 최적화하지 않았기 때문이다.
-20: 
+20:
 21: ---
-22: 
+22:
 23: ## 왜 이전 추천이 잘못됐는가
-24: 
+24:
 25: ### 1. 목표 함수를 잘못 잡았다
-26: 
+26:
 27: - 잘못 잡은 목표:
 28:   - `P(max score > 92.385)`
 29: - 사용자의 실제 목표:
 30:   - `P(score >= 102.385)` 또는 최소 `P(score >= 100)`
-31: 
+31:
 32: 이 차이는 작지 않다.
 33: `method21`, `method22`는 첫 번째 목표에는 의미가 있지만, 두 번째 목표에는 거의 의미가 없다.
-34: 
+34:
 35: ### 2. `method21`, `method22`는 밴드 안 재추첨 카드다
-36: 
+36:
 37: - 직접 관찰:
 38:   - `method21 = 92.385`
 39:   - `method22 = 89.910`
@@ -557,15 +557,15 @@ S01–S08은 원본 개발 폴더의 자체 검토 문서에서 발췌했다. �
 41: - 결론:
 42:   - 이 둘은 최고점을 `1~2`점 더 뽑을 수는 있어도,
 43:   - 지금 원하는 `+10 / 100+` 목표엔 맞지 않는다.
-44: 
+44:
 45: ### 3. 따라서 이번 계획에서는 `method21`, `method22`를 완전히 뺀다
-46: 
+46:
 47: - `banked score`가 있으니 낮게 나와도 손해는 없다는 논리는 맞다.
 48: - 하지만 그 말이 곧 **밴드 안 재추첨 카드에도 슬롯을 써도 된다**는 뜻은 아니다.
 49: - 이번 배치의 슬롯은 **밴드 밖으로 나갈 가능성이 있는 구조 가설**에만 쓴다.
-50: 
+50:
 51: ---
-52: 
+52:
 53: ## direct observations
 ```
 
@@ -580,63 +580,63 @@ S01–S08은 원본 개발 폴더의 자체 검토 문서에서 발췌했다. �
 
 ```text
 21: ## 1. 로컬 probe는 나눗셈이었다 (핵심 반증)
-22: 
+22:
 23: `aas_step4_measured_replay_model_split_probe.py`의 생성 루프는 후보 1개당 다음을 누적한다.
-24: 
+24:
 25: ```python
 26: replay_cost += max(replay_floor_s, elapsed) * replay_cost_coef
 27: ```
-28: 
+28:
 29: 로컬 GPU에서 probe latency는 `gpt ~1.0s / gemma ~1.36s`(실험기록 2026-08-15 게이트웨이 실측)로 **모든 floor 후보(1.55 / 1.80 / 2.05)보다 작다.** 따라서 `max()`는 항상 floor를 고른다. 즉
-30: 
+30:
 31: > N = replay_cap / (floor × coef × slowest_mult) → **N ∝ 1/floor**
-32: 
+32:
 33: 이 관계로 보고된 숫자를 그대로 예측할 수 있다. 기준 N=41 (floor 1.80):
-34: 
+34:
 35: | arm | floor | 예측 N | 보고된 N |
 36: |---|---|---|---|
 37: | gpt split | 1.55 | 41 × 1.80/1.55 = **47.6** | **48** |
 38: | gemma split | 2.05 | 41 × 1.80/2.05 = **36.0** | **36** |
 39: | 평균 | — | **41.81** | **42** |
-40: 
+40:
 41: 세 칸 모두 정확히 맞는다. **모델이 무엇인지는 한 번도 개입하지 않았다.**
-42: 
+42:
 43: ### 1-1. score는 독립 측정이 아니다
-44: 
+44:
 45: 보고된 모든 셀에서 `score / findings = 0.09`가 정확히 성립한다 (3.69/41, 4.32/48, 3.24/36, 3.78/42). 게다가 문서 자신이 `mean findings = mean returned`라고 적었다 — 즉 **반환한 후보가 전부 replay를 통과했고, replay는 한 번도 시간 안에서 잘리지 않았다.** replay 단계는 생성 단계가 넘긴 숫자를 그대로 되돌려줬을 뿐이다.
-46: 
+46:
 47: 따라서 "이번엔 `returned_n`이 아니라 **실제 replay score**로 확인했다"는 계획서와 probe plan의 주장은 형식적으로만 참이고 내용상 공허하다. 이 probe는 replay에 대한 어떤 가설도 구분할 수 없다.
-48: 
+48:
 49: ### 1-2. swap-invariance — 모델 정보가 0이라는 결정적 증거
-50: 
+50:
 51: floor 배정을 뒤집어(gpt=2.05, gemma=1.55) 계산하면 평균 N은 `(36.0 + 47.6)/2 = 41.81`로 **완전히 동일하다.** 관측된 이득은 전적으로 1/x의 볼록성(Jensen)에서 나온다.
-52: 
+52:
 53: - 대칭 split의 예측 이득: `(1/1.55 + 1/2.05)/2 ÷ (1/1.80) − 1 = **+1.97%**`
 54: - 관측된 이득: `41.81/41 − 1 = **+1.97%**`
-55: 
+55:
 56: **소수점까지 일치한다.** 1.80을 중심으로 ±0.25 벌리기만 하면, 어느 모델에 어느 쪽을 주든, 심지어 동전을 던져 배정해도 같은 "+1 finding"이 나온다. `gemma rescue`가 아니라 `gpt +7 / gemma −5 교환`이라는 문서의 해석조차 과잉이다 — 교환은 배정의 산물이지 모델의 성질이 아니다.
-57: 
+57:
 58: ### 1-3. 사전 판정 규칙에 실패 가지가 없었다
-59: 
+59:
 60: `measured_replay_model_split_probe_plan`의 성공 조건은 "3회 중 2회 이상 split이 mean score 우위"였다. 위 결정론 때문에 이 조건은 **실행 전부터 3/3 확정**이었다. 반증 불가능한 사전 규칙이므로 이 probe는 승격 근거가 될 수 없다.
-61: 
+61:
 62: ---
-63: 
+63:
 64: ## 2. 통제군이 프로덕션 베이스라인이 아니다
-65: 
+65:
 66: 부모 엔진들의 실제 코드를 확인했다.
-67: 
+67:
 68: | 파일 | 누적식 | 실효 floor |
 69: |---|---|---|
 70: | `method22_aggressive_pack_apreimp.py:116` | `replay_cost += elapsed * REPLAY_COST_COEF` | `LAT_FLOOR_S = 0.001` |
 71: | `method34_validated_wallfill_safe_apreimp.py:136` | 동일 | `0.001` |
 72: | `method36_narrow_race_moderate_pack.py:205` | 동일 | `0.001` |
 73: | `method21_family_race_breakout.py` | **누적식 없음** (`BLIND_N = 2000` 고정 방출) | — |
-74: 
+74:
 75: 즉 **프로덕션에는 `replay_floor_s`라는 개념이 아예 없다.** `LAT_FLOOR_S=0.001`은 0으로 나누기 방지용이다.
-76: 
+76:
 77: probe의 통제군(`floor 1.80`)은 프로덕션이 아니라 **probe가 새로 만든 제3의 arm**이다. 실제 비교는 이렇게 됐어야 한다.
-78: 
+78:
 ```
 
 원본 L160–181:
@@ -647,30 +647,30 @@ S01–S08은 원본 개발 폴더의 자체 검토 문서에서 발췌했다. �
 162: if classify_med > SPLIT_THRESHOLD_S: chosen = "slow"
 163: ```
 164: 결과: **53.415**. 실험기록은 이를 "low-threshold latency split이 실전에서 거의 작동하지 않았음"으로 기록했다.
-165: 
+165:
 166: 그런데 §4에서 역산한 실제 probe latency는 **≈0.48s**다. `SPLIT_THRESHOLD_S = 5.75`는 그보다 **약 12배 높다.** 즉 `classify_med`는 두 모델 모두에서 임계값에 한참 못 미쳤을 가능성이 크고, 그렇다면 **분류기는 항상 `fast`를 골라 상수 함수로 퇴화했다.** 53.415는 split 실패가 아니라 `fast_family` 템플릿(json_args_plain) 자체의 실패일 수 있다.
-167: 
+167:
 168: 시사점 두 가지:
 169: - 분류기는 **아직 한 번도 Kaggle에서 실제로 분기한 적이 없다.** 계획은 검증되지 않은 부품에 5슬롯 전부를 건다.
 170: - 이 질문은 **제출 0회로 해결된다.** `method25` stderr의 `chosen=` / `classify_med=` 한 줄이면 끝난다. 실험기록 08-27 "다음 액션"에 이미 적혀 있었고 아직 미수행이다.
-171: 
+171:
 172: 계획서의 "이번 배치에서 제외할 것" 목록에 prompt sidecar·blind-tail·exact rerun은 있는데, **실제로 실전 반증 이력이 있는 latency split만 빠져 있다.**
-173: 
+173:
 174: ---
-175: 
+175:
 176: ## 7. 배치 설계 문제
-177: 
+177:
 178: - **5/5 동일 축.** 다섯 장 모두 "latency classifier + floor split"을 공유한다. 공통 부품이 무효면 5슬롯이 동시에 죽고, 유효해도 어느 부모가 좋은지밖에 못 배운다. 08-27 handoff의 원칙("희소 자원은 살아있는 축들 사이의 decorrelation")과 08-28 판정("control 1 + isolated 3 + combo 1로 복귀") 양쪽에 어긋난다.
 179: - **slot 1과 slot 5가 사실상 중복.** `method41`은 "method21의 wide race + method36식 validated packing + floor split"인데, method36식 packing으로 바꾸는 순간 method21의 유일한 강점인 **blind 2000(=벽 포화)이 사라진다.** §5에 따르면 이 변경 하나만으로 N이 1026 → ~1000으로 내려간다. slot 5는 상방이 가장 높은 카드가 아니라 **92.385를 스스로 반납하는 카드**다.
 180: - **slot 5의 전제가 미검증.** "method21의 상방이 family selection에서 왔다"는 가정은 `method21` stderr의 `[RANK]` / `chosen=` 확인을 전제로 하는데, 이 액션은 08-27, 08-29 두 번 기록되고 두 번 다 미수행이다. 확인 결과 양 모델이 모두 `apreimp`를 골랐다면 92.385는 selection이 아니라 **blind 2000 + 상단 노이즈 draw**이고, slot 5의 논리 전체가 무너진다.
-181: 
+181:
 ```
 
 원본 L184–189:
 
 ```text
 184: ## 8. 사실관계 정정이 필요한 문장
-185: 
+185:
 186: 1. "로컬 scorer-like replay 기준으로 shared floor보다 model-specific floor가 실제 점수를 올리는 신호가 나왔다"
 187:    → **정정:** score는 findings의 0.09배 상수배였고 findings = returned였다. 관측된 +0.09는 `1/1.55 + 1/2.05 > 2/1.80`이라는 산술 항등식이며 모델과 무관하다.
 188: 2. "그 이득은 gemma rescue가 아니라 gpt +7 / gemma −5 교환 구조였다"
@@ -688,7 +688,7 @@ S01–S08은 원본 개발 폴더의 자체 검토 문서에서 발췌했다. �
 
 ```text
 16: ## Direct Observations
-17: 
+17:
 18: 1. **첫 번째 프로필은 실제로 정상 진행됐다.**
 19:    - `gpt_oss | n=96 | control_validated_only`
 20:    - generation:
@@ -700,30 +700,30 @@ S01–S08은 원본 개발 폴더의 자체 검토 문서에서 발췌했다. �
 26:      - `score_normalized = 5.67`
 27:      - `replay_timeout_hit = true`
 28:      - `replay_timeout_at_candidate_index = 63`
-29: 
+29:
 30: 2. **크래시는 바로 다음 profile 시작 시점에 났다.**
 31:    - 다음 구간:
 32:      - `gpt_oss | n=96 | tail_p4_controlcost`
 33:    - 에러:
 34:      - `GGML_ASSERT(buf != NULL && "tensor buffer not set") failed`
 35:      - 이후 `DeadKernelError: Kernel died`
-36: 
+36:
 37: 3. **즉, crash 이전까지는 모델 자체가 정상 동작했다.**
 38:    - 첫 profile의 generation과 replay가 모두 의미 있는 수치를 반환했기 때문이다.
 39:    - 따라서 “prompt가 모델을 망가뜨렸다”나 “tail prompt 자체가 invalid”보다
 40:      - **timeout 뒤 cleanup 없이 다음 replay/generation을 이어간 probe 흐름**이 더 직접 원인이다.
-41: 
+41:
 42: ## Root Cause
-43: 
+43:
 44: ### 가장 가능성 높은 원인
-45: 
+45:
 46: - [aas_step4_near_cliff_replay_score_probe.py](<development-archive>/codex/aas_step4_near_cliff_replay_score_probe.py) 구버전은 replay candidate마다 `aicomp_sdk.evaluation.ops._run_until_deadline(...)`를 호출했다.
 47: - 그런데 SDK의 [`_run_until_deadline`]( <development-archive>/kaggle_dump/data/aicomp_sdk/evaluation/ops.py:54 )는 내부적으로 **daemon thread를 띄우고**, timeout 시 그 thread를 종료하지 않는다.
 48: - 첫 control replay가 `candidate_index = 63`에서 timeout 난 뒤에도, 마지막 replay thread는 백그라운드에서 계속 같은 GGUF 서버를 만지고 있었을 가능성이 높다.
 49: - 그 직후 다음 profile의 generation이 같은 모델 서버로 새 요청을 보내면서 low-level backend assert가 발생한 것으로 보는 것이 가장 자연스럽다.
-50: 
+50:
 51: ## Why this is not an attack finding
-52: 
+52:
 53: - 이번 로그는 “tail 후보가 점수를 못 낸다”는 증거가 아니다.
 54: - 실제로 tail profile은 **아예 평가를 시작하기도 전에** kernel이 죽었다.
 55: - 따라서 이 로그에서 배울 수 있는 것은:
@@ -742,23 +742,23 @@ S01–S08은 원본 개발 폴더의 자체 검토 문서에서 발췌했다. �
 
 ```text
 9: 이번 구간의 가장 큰 반성은 **레버 이름을 너무 크게 붙여서, 서로 다른 실패를 한 단어로 뭉개 버린 것**이다. 특히 `multipost`는 한 가지가 아니었는데, 초기 실패 몇 개를 보고 `multipost dead`처럼 읽었다가, 나중에는 반대로 `gpt_oss multipost breakthrough`를 너무 넓게 읽었다. 지금 남겨야 할 교훈은 "`multipost`가 산다/죽는다"가 아니라, **어떤 구현이 어떤 증거 계층에서 실패했는지**를 분리해서 적어야 한다는 점이다.
-10: 
+10:
 11: ## 2. 반성 1 — `multipost`를 한 덩어리로 보면 반드시 틀린다
-12: 
+12:
 13: 실제로 섞여 있었던 것은 최소 세 종류였다.
-14: 
+14:
 15: 1. `same-generation multi-call`
 16: 2. `multi-message amortization`
 17: 3. `multi-hop sequential post`
-18: 
+18:
 19: 이 셋은 이름만 비슷하고 점수 구조는 다르다.
-20: 
+20:
 21: - `same-generation multi-call`은 parser/에피소드 종료 리스크가 핵심이다.
 22: - `multi-message amortization`은 generation 수가 늘어나 throughput이 무너질 수 있다.
 23: - `multi-hop sequential post`는 한 hop당 1-call을 지키면서도 후보당 post 수를 늘리려는 전혀 다른 구조다.
-24: 
+24:
 25: 초기엔 앞의 두 실패를 보고 `multipost` 전체가 죽었다고 읽었고, 이후엔 세 번째 구조를 발견하자 이번엔 반대로 큰 일반론으로 밀어 올렸다. 그런데 `2026-08-30` Kaggle batch 결과는 **current `k8` implementation failed**를 보여줬다. 따라서 맞는 문장은 둘 중 하나가 아니라 아래다.
-26: 
+26:
 27: - "`static k8` 구현은 실패했다."
 28: - "`k8` frontload ordering은 실패했다."
 29: - "`multipost` 전체 일반론은 아직 구현 단위로 더 쪼개서 판단해야 한다."
@@ -768,33 +768,33 @@ S01–S08은 원본 개발 폴더의 자체 검토 문서에서 발췌했다. �
 
 ```text
 31: ## 3. 반성 2 — `gemma`의 제약을 `gpt_oss`의 ceiling으로 착각했다
-32: 
+32:
 33: single-post 중심 전략이 오래 유지된 이유 자체는 합리적이었다.
-34: 
+34:
 35: - `gemma`는 실제로 single-post 쪽 관측이 강했다.
 36: - 공개 점수는 평균이라 한 모델이 크게 죽으면 전체 점수가 바로 깎인다.
 37: - 정적 per-model routing 훅이 없어서 shared safe single이 운영적으로 편했다.
-38: 
+38:
 39: 문제는 여기서 한 단계 더 나가 **`gemma single-post` 관측을 `gpt_oss`도 실질적으로 single일 것이라는 결론으로 확장한 것**이다. 이건 같은 말이 아니다.
-40: 
+40:
 41: - `gemma`의 멈춤은 `gemma`의 사실이다.
 42: - `gpt_oss`가 hop을 이어 갈 수 있는지는 별도 질문이다.
-43: 
+43:
 44: 다음부터는 "모델 A에서 보인 제약"을 문서에 적을 때 반드시 아래 둘 중 하나로 적는다.
-45: 
+45:
 46: - `model-specific fact`
 47: - `cross-model inference`
-48: 
+48:
 49: 그리고 후자는 근거가 따로 없으면 사실처럼 쓰지 않는다.
-50: 
+50:
 51: ## 4. 반성 3 — local, board-like, Kaggle score를 같은 층위로 말하면 해석이 무너진다
-52: 
+52:
 53: 이번 구간에서 가장 반복된 해석 실수는 증거 경계 혼동이었다.
-54: 
+54:
 55: - `local_gguf`는 문법/발화/거친 행동 확인용이다.
 56: - `cm391 CPU board-like harness`는 제출 전 후보 압축용 프록시다.
 57: - 최종 우열은 Kaggle 점수다.
-58: 
+58:
 59: 이 셋은 서로 연결되어 있지만 동일하지 않다. 특히 local에서 좋아 보인 `k8` 서사가 Kaggle scored batch에서 그대로 뒤집힌 것은, "좋은 프록시"와 "최종 점수"를 같은 문장 안에 섞으면 얼마나 쉽게 오판하는지를 보여줬다.
 ```
 
@@ -815,29 +815,29 @@ S01–S08은 원본 개발 폴더의 자체 검토 문서에서 발췌했다. �
 29:   - (a) 런타임 행동 probe로 분기 → 그건 **`method56`=`method42`의 selector**다(=별도 카드가 아님).
 30:   - (b) 양 모델 동일(symmetric) → 그건 **`method44`(k4)/`method46`(k8)의 재탕**이고, exact/near-exact 재제출 금지에 걸린다.
 31: - 즉 `53/54/55`는 "새 정적 구조"로 존재할 수 없다. selector로 접히거나 이미 채점된 카드로 접힌다.
-32: 
+32:
 33: ### Finding 3 — 비대칭의 유일한 구현 수단인 selector(`method42/56`)는 **단 한 번의 실측에서 빈 row → single 폴백**했다 [직접 관측, 문서 인용]
 34: - `aas_local_validation_followup_hypotheses_2026-08-30.md`:
 35:   > "이전 `method42` wording-selection probe는 **결과 row가 비어서 `chosen=single_apreimp` 기본값만 남았다.**"
 36: - 즉 "gpt는 multi, gemma는 single로 실제로 갈린다"는 분기 증거는 **아직 없다**. 유일한 시도는 측정 실패로 single로 떨어졌다.
 37: - 이건 단순 버그일 수 있으나, **오늘 배치 전체가 이 분기 재현성에 의존**한다는 점이 핵심 리스크다. 분기가 안 되면 `56`은 `method39`류 single로 퇴화하고, "정적" 카드가 분기를 잘못 하면 gemma가 multipost로 올라가 **에피소드 종료(0점)** 위험이 있다.
-38: 
+38:
 39: ### Finding 4 — 오늘의 top-level thesis에 **직접 Kaggle 반증**이 있고, 비대칭 수정은 그 반증의 절반만 건드린다 [Kaggle 직접 관측 + 추론]
 40: - Kaggle 직접 관측(same-window, `43~47`): 5장 전부 banked `93.835` 아래. `k8=64.230`(최하), 단조성 `k8 < k4`(`44>46`, +9.0), 그리고 **single-front > k8-front**(`45=83.565 > 47=73.445`, +10.1).
 41: - 계획의 방어 논리는 "`43~47`은 symmetric이라 gemma가 자멸해서 망했다 → 비대칭이면 산다"이다.
 42: - 그러나 `45 > 47`(순서만 다르고 `k8` 수 동일)은 **gemma 자멸과 무관한 gpt-측 throughput 문제**를 가리킨다. 앞에 `single`을 둔 쪽이 이겼다 = board 시간예산 안에서 **긴 체인은 후보 완주 수를 깎아 손해**. 비대칭(gpt-only)은 **gemma-collapse만 복구**하고 이 gpt-측 속도 손해는 그대로 남긴다.
 43: - 즉 비대칭 수정은 "틀린 실패 원인"을 고치고 있을 수 있다.
-44: 
+44:
 45: ### Finding 5 — 배치에 **same-window single anchor가 없다** = `43~47` 리뷰가 지적한 실수의 반복 [직접 관측]
 46: - Kaggle은 per-model row(`gpt_public`, `gemma_public`)를 우리에게 **안 보여준다**(hard rule). 따라서 어떤 multipost 결과가 나와도 "gpt가 오른 건지 gemma가 내린 건지"는 **같은 창의 single anchor와 비교해야만** 분해된다.
 47: - `review_submission_results_methods43_47`도 이미 명시: "pure same-window baseline이 없어서 이번 창 전체가 single에도 불리했는가를 직접 측정하지 못했다."
 48: - 그런데 오늘 계획은 anchor를 또 뺐다. `method48_single_anchor_control.py`는 **이미 작성돼 있고**(non-dup SHA `4126b8a6ecb2`) 바로 쓸 수 있는데도 100+ 계획에서 드랍됐다. `EXPERIMENT_DESIGN_CHECKLIST` Gate E 위반.
-49: 
+49:
 50: ### Finding 6 — `55`의 "warmed board-like ceiling" 증거는 계획이 말하는 것보다 약하다 [board-like/local, 층위 혼입 경고]
 51: - 근거가 되는 warmed wording probe: `list_continue_k8`가 raw/s 최고(~20.8, 한 run 23.07)였지만 **`hit_target_rate=0.75`**(8/8 완주를 자주 놓침), 그리고 비교 대상 `single_apreimp` baseline은 **첫 샘플 85.29s cold-start outlier로 심하게 낮게** 잡혔다(=k8 우위가 아티팩트일 수 있음).
 52: - 결정적으로 이 probe result들의 **`resolved_harness`가 `board_remote`로 확인됐다는 증거를 repo 안에서 찾지 못했다**(계획/가설 문서는 "board_remote 우선"이라는 목표만 적음). `RESULT_INTERPRETATION_TEMPLATE`의 "`resolved_harness` 미확인 결과를 board-like evidence로 확대하지 마라"에 걸린다.
 53: - 같은 로컬 계열(`probe_review_firing_and_gateB`)의 gguf 관측은 오히려 반대다: **양 모델 모두 hop0에서 1회 발사 후 정지(8-hop 지연 = 2-hop 지연)**. 로컬 gguf는 multi-hop 연쇄를 **지지하지 않는다**.
-54: 
+54:
 55: ### Finding 7 — discussion 힌트를 계획이 **한쪽만** 반영했다 [직접 관측, 코드 근거]
 56: - `discussion_hint_analysis_2026-08-28`은 gateway 코드로 확인: 채점은 **모델별 4-row**(gpt/gemma × public/private), 공개 = 두 모델 결합.
 57: - 힌트 1 "90 = optimized to one"의 코드 기반 최강 해석은 **"한 모델"**(한 모델 ~180, 다른 모델 ~0 → 평균 ~90)이다. BREAKTHROUGH 문서는 이걸 **"한 post"**로 재해석해 multipost로 몰았는데, 이건 두 해석 중 하나에 올인한 것이다.
@@ -864,11 +864,11 @@ S01–S08은 원본 개발 폴더의 자체 검토 문서에서 발췌했다. �
 
 ```text
 132: ## 9. [추가] 로컬 검증 노트북 확인 결과 — harness 정정 (사용자 요청)
-133: 
+133:
 134: 사용자 안내로 `community_notebooks/aas-local-validation.ipynb`와 SDK harness 코드를 직접 확인했다. 계획의 "`resolved_harness=board_remote`면 승격" 게이트에 대한 **중요한 정정**이 필요하다.
-135: 
+135:
 136: ### 9.1 직접 관측 (코드)
-137: 
+137:
 138: - **노트북(`aas-local-validation.ipynb`)은 `local_gguf` + `gym` agent다.** cell 6/15/17이 `build_gguf_agent_factory()` + `EnvSelection.GYM` + `OptimalGuardrail`로 로컬 gguf 가중치(`gpt-oss-20b-Q4_K_M`, `gemma-4-26b Q4_K_M`)를 직접 로드한다. **`RemoteAgent`(board parser)를 쓰지 않는다.**
 139: - 노트북은 **per-model public 점수를 준다**(cell 20/21: `gpt_oss_public`, `gemma_public`, mean). 즉 **로컬 분해 자(尺)는 이미 있다** — 단, gym agent + 로컬 gguf + 빠른 로컬 HW 기준의 프록시다.
 140: - `board_remote`는 로컬에서 **실행 가능**하다. `remote_agent.py`의 `RemoteAgent`가 존재하고, probe들(`aas_step4_gptoss_*_probe.py`)은 `RemoteAgent(model_srv.predict)`로 그 경로를 만든다. 하지만 여기서 `model_srv`는 **로컬 gguf 모델 서버**다. 즉 로컬 `board_remote` = **board 충실한 agent/parser 레이어 + 로컬 gguf 가중치 + 빠른 로컬 HW**의 하이브리드 프록시이지, 진짜 Kaggle 원격 서버가 아니다.
@@ -886,7 +886,7 @@ S01–S08은 원본 개발 폴더의 자체 검토 문서에서 발췌했다. �
 
 ```text
 3: ## 2026-08-25 — `method14_v30_directcall_bias` Kaggle Error
-4: 
+4:
 5: - 표면 결과: Kaggle UI에는 `Kaggle Error`로 보였음
 6: - 실제 원인: 제출 코드 셀에 마크다운 코드펜스 ` ``` ` 를 같이 붙여 넣어 `SyntaxError: invalid syntax`
 7: - 로그 신호:
@@ -908,30 +908,30 @@ S01–S08은 원본 개발 폴더의 자체 검토 문서에서 발췌했다. �
 
 ```text
 3: 지금까지 상방(100+)을 발견하지 못한 핵심 원인은 크게 두 가지 구조적 오판(Blind Spot)에 있었습니다. 우리는 "가설"이 틀린 것이 아니라, "측정"과 "구현"에서 치명적인 모순을 범하고 있었습니다.
-4: 
+4:
 5: ## 1. 프롬프트 오염 (Model Contamination): GPT를 강제로 마비시켰다
-6: 
+6:
 7: - **원인**: 과거 `method30` 전후로 도입된 `ANALYSIS_OPEN` (`<|end|><|start|>assistant<|channel|>analysis<|message|>`) 템플릿은 **오직 Gemma-2를 위한 전용 제어 토큰(Control Tokens)**입니다.
 8: - **오판**: 로컬 검증 시 `gpt_oss` 프록시가 이를 무시하거나 우연히 통과한 것을 보고, 이 템플릿을 전역(Global)에 적용했습니다. 최근 93.835를 기록한 `method39`를 포함해 `method64`, `71`, `76`, `77` 등 모든 고득점 카드의 **모든 메시지 뒤에 `ANALYSIS_OPEN`이 강제 주입**되었습니다.
 9: - **결과**: Kaggle 환경의 실제 `gpt_oss`(Qwen 계열)는 이 낯선 제어 토큰을 보고 문맥을 잃고 환각(Runaway)에 빠져 타임아웃을 유발했습니다.
 10: - **충격적 사실**: 공개 LB 점수 93.835는 두 모델 평균입니다. Gemma가 0.9초 쾌속으로 2000개를 완주해 180점(가정)을 쓸어담는 동안, GPT는 타임아웃으로 죽어 7점밖에 내지 못했을 가능성이 큽니다. `(180 + 7) / 2 = 93.5`. 즉, **우리는 GPT 측 점수를 스스로 0점으로 만들고 있었습니다.**
-11: 
+11:
 12: ## 2. Multi-message 환상: 1개의 타겟에서 여러 번 점수를 뽑을 수 없다
-13: 
+13:
 14: - **원인**: 우리는 "한 번 성공해서 보내면 점수가 쌓이고, 많이 보낼수록 올라간다"는 문장을 "동일한 Candidate(에피소드) 안에서 여러 번 쏘면 2배, 4배가 된다"고 오해했습니다.
 15: - **증명**: `method76`은 2000개의 타겟에 k=4를 적용해 총 8000번의 메시지를 보냈습니다. 만약 여러 번 쏜 것이 합산된다면 93점보다 훨씬 높은 점수가 나와야 하지만, 결과는 78.045점이었습니다.
 16: - **결론**: Kaggle은 **한 번의 에피소드(Candidate) 당 성공 여부를 1번만 집계**합니다. 동일 타겟에 4번을 쏘는 것은 점수 이득은 0이면서 시간만 4배로 소모하여 타임아웃 멸망(1500개만 처리 후 종료 등)을 부르는 최악의 전략이었습니다.
-17: 
+17:
 18: ## 3. 2000개의 인위적 천장 (Artificial Ceiling)
-19: 
+19:
 20: - **원인**: 우리는 관성적으로 `BLIND_N = 2000`을 하드코딩해왔습니다.
 21: - **진실**: Kaggle이 Candidate 리스트를 순회하며 평가한다면, 우리가 2000개만 리턴하기 때문에 최대 2000점 만점(평균 100점)에 갇혀있던 것입니다. "100+ 상방"이 존재한다면, 테스트 케이스(타겟)가 2000개 이상이거나, 타임아웃 한계(9000초) 전까지 더 많은 후보를 낼 수 있다는 뜻입니다.
 22: - 만약 GPT의 오염된 프롬프트를 깨끗하게 고쳐 1~2초 내에 응답하게 만들면, 두 모델 모두 엄청난 속도를 얻게 되므로 2000개가 아니라 **3000~4000개의 Candidate를 제출하여 타임아웃 없이 순수하게 상방을 뚫어낼 수 있습니다.**
-23: 
+23:
 24: ## 4. 놓친 상방을 잡는 유일한 해결책 (Next Action)
-25: 
+25:
 26: 라우팅이나 꼼수가 필요 없습니다. **"Race 기반 프롬프트 풀에 GPT용 순수(Clean) 프롬프트를 섞어주는 것"** 하나면 끝납니다.
-27: 
+27:
 28: 1. `method39`의 Race 엔진을 부활시킵니다.
 29: 2. 5개의 스타일에 `ANALYSIS_OPEN`이 붙은 Gemma 전용 템플릿과, `ANALYSIS_OPEN`을 완전히 제거한 **GPT 전용 순수(Clean) 템플릿**을 함께 넣습니다.
 30: 3. Race 단계에서 Gemma는 당연히 0.9초짜리 `ANALYSIS_OPEN` 스타일을 자기 스스로 선택할 것이고, GPT는 환각에 빠지지 않는 1초짜리 `Clean` 스타일을 알아서 선택할 것입니다.
